@@ -1,0 +1,189 @@
+/* ============================================================
+   ACM UEMJ — responsive.css
+   Breakpoint-only overrides: grid-template-columns swaps and
+   nav toggling — everything clamp() already handles fluidly is
+   NOT repeated here. Section-ordered to mirror pages.css 1:1.
+   Reference scale (not usable as custom properties in @media):
+   --bp-sm:480  --bp-md:768  --bp-lg:1024  --bp-xl:1280  --bp-xxl:1536
+   ============================================================ */
+
+/* ---- Nav ---- */
+@media (min-width: 1024px) {
+  .c-nav__toggle { display: none; }
+
+  .c-nav__links {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-left: none;
+    transform: none;
+    gap: var(--space-6);
+  }
+}
+
+/* ---- Small screens ---- */
+@media (max-width: 959px) {
+  .s-hero {
+    min-height: auto;
+    padding-top: calc(var(--space-8) + 72px);
+  }
+
+  .s-hero__content {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .s-hero__headline {
+    font-size: clamp(2.8rem, 11vw, 5rem);
+  }
+
+  .s-hero__actions {
+    width: 100%;
+  }
+
+  .s-hero__actions .c-btn {
+    flex: 1 1 240px;
+  }
+
+  .s-hero__constellation {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .s-stats__item {
+    flex-basis: 100%;
+    padding-inline: var(--space-4);
+  }
+
+  .s-hero__actions .c-btn {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .c-card {
+    padding: var(--space-5);
+  }
+
+  .c-card--feature {
+    padding: var(--space-6);
+  }
+
+  .s-about__grid,
+  .s-why__grid,
+  .s-events__grid,
+  .s-testimonials__grid {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .s-hero__headline {
+    font-size: clamp(2.4rem, 13vw, 3.8rem);
+  }
+
+  .s-hero__scroll-cue {
+    bottom: var(--space-4);
+  }
+
+  .s-domains__card {
+    flex-basis: 84vw;
+  }
+
+  .s-events__featured h3 {
+    font-size: var(--fs-h3);
+  }
+
+  .s-contact__map {
+    min-height: 260px;
+  }
+}
+
+/* ---- Hero ---- */
+@media (min-width: 960px) {
+  .s-hero__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  }
+  .s-hero__content { align-items: flex-start; text-align: left; }
+}
+
+/* ---- Stats ---- */
+@media (min-width: 640px) {
+  .s-stats__item { flex-basis: 50%; }
+}
+@media (min-width: 768px) {
+  .s-stats__item { flex-basis: 25%; }
+  .s-stats__item:not(:first-child)::before { display: block; }
+}
+
+/* ---- About: staggered courtyard panels ---- */
+@media (min-width: 1024px) {
+  .s-about__grid {
+    grid-template-columns: .9fr 1.1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-6);
+    row-gap: var(--space-6);
+  }
+  .s-about__panel--global { grid-column: 1; grid-row: 1; }
+  .s-about__panel--chapter { grid-column: 2; grid-row: 1 / 3; align-self: start; transform: translateY(-28px); }
+  .s-about__panel--university { grid-column: 1; grid-row: 2; }
+}
+
+/* ---- Why Join: asymmetric bento ---- */
+@media (min-width: 768px) {
+  .s-why__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .s-why__card--feature { grid-column: span 2; }
+  .s-why__card--wide { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  /* 4-col grid: feature spans 2x2 on the left; the 4 remaining single-cell
+     cards auto-place into the 2x2 area to its right; the wide card spans
+     the full row beneath. */
+  .s-why__grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+  .s-why__card--feature { grid-column: span 2; grid-row: span 2; }
+  .s-why__card--wide { grid-column: span 4; grid-row: span 1; }
+}
+
+/* ---- Events preview ---- */
+@media (min-width: 1024px) {
+  .s-events__grid { grid-template-columns: 1.3fr 1fr; align-items: start; }
+}
+
+/* ---- Testimonials: staggered offsets ---- */
+@media (min-width: 1024px) {
+  .s-testimonials__grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  .s-testimonials__grid > li:nth-child(2) { transform: translateY(48px); }
+  .s-testimonials__grid > li:nth-child(3) { transform: translateY(-16px); }
+}
+
+/* ---- Gallery ---- */
+@media (min-width: 640px) {
+  .s-gallery__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+  .s-gallery__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---- Contact ---- */
+@media (min-width: 900px) {
+  .s-contact__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+/* ---- Footer ---- */
+@media (min-width: 640px) {
+  .s-footer__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .s-footer__grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
+}

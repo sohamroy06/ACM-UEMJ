@@ -1,0 +1,261 @@
+/* ============================================================
+   ACM UEMJ — base.css
+   Design tokens, reset, font loading, ambient background layers.
+   "The Yantra Line" — Jantar Mantar instrument geometry fused
+   with circuit-trace vocabulary, on a near-black ground.
+   ============================================================ */
+
+:root {
+  /* ---- Color: locked palette ---- */
+  --void: #0B0D12;
+  --dune: #171B24;
+  --sandstone: #C67C4E;
+  --marigold: #E9AC4F;
+  --cyan: #45E0CE;
+  --indigo: #5A5FE0;
+  --maroon: #6B2737;
+  --bone: #F4EDE2;
+  --slate: #8A8F9C;
+
+  /* rgb triplets for rgba() composition */
+  --cyan-rgb: 69, 224, 206;
+  --indigo-rgb: 90, 95, 224;
+  --sandstone-rgb: 198, 124, 78;
+  --marigold-rgb: 233, 172, 79;
+  --maroon-rgb: 107, 39, 55;
+  --bone-rgb: 244, 237, 226;
+  --void-rgb: 11, 13, 18;
+
+  /* derived surfaces / borders — compose from these, never hand-roll rgba() elsewhere */
+  --surface-glass: rgba(23, 27, 36, .62);
+  --surface-glass-strong: rgba(23, 27, 36, .82);
+  --border-hairline: rgba(var(--bone-rgb), .08);
+  --border-hairline-strong: rgba(var(--bone-rgb), .16);
+  --border-engraved-top: rgba(255, 255, 255, .06);
+  --border-engraved-bottom: rgba(0, 0, 0, .5);
+
+  /* gradients */
+  --grad-brand: linear-gradient(135deg, var(--cyan), var(--indigo));
+  --grad-warm: linear-gradient(135deg, var(--sandstone), var(--marigold));
+  --grad-bg-glow:
+    radial-gradient(60% 50% at 15% 0%, rgba(var(--cyan-rgb), .14), transparent 60%),
+    radial-gradient(50% 45% at 90% 15%, rgba(var(--indigo-rgb), .12), transparent 60%),
+    radial-gradient(60% 40% at 50% 100%, rgba(var(--sandstone-rgb), .08), transparent 65%);
+
+  /* ---- Type families ---- */
+  --font-display: 'Clash Display', 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* ---- Fluid type scale ---- */
+  --fs-hero: clamp(3rem, 8vw, 7.5rem);
+  --fs-h1: clamp(2.5rem, 5.2vw, 4.5rem);
+  --fs-h2: clamp(2rem, 4vw, 3.25rem);
+  --fs-h3: clamp(1.4rem, 2.4vw, 1.9rem);
+  --fs-h4: clamp(1.1rem, 1.5vw, 1.3rem);
+  --fs-body-lg: clamp(1.05rem, 1.2vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-small: .875rem;
+  --fs-caption: .8125rem;
+  --fs-mono-label: .75rem;
+  --fs-mono-stat: clamp(2.5rem, 5vw, 4.25rem);
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+  --ls-tight: -0.02em;
+  --ls-wide: .06em;
+  --ls-widest: .18em;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --section-pad-y: clamp(80px, 10vw, 160px);
+  --section-pad-y-tight: clamp(56px, 7vw, 96px);
+  --container-max: 1320px;
+  --container-pad: clamp(20px, 5vw, 56px);
+
+  /* ---- Radii — restrained, engraved-stone / instrument feel ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-card: 0 24px 64px -28px rgba(0, 0, 0, .65);
+  --shadow-card-hover: 0 32px 80px -24px rgba(var(--cyan-rgb), .22);
+  --shadow-glow-cyan: 0 0 0 1px rgba(var(--cyan-rgb), .4), 0 0 32px -6px rgba(var(--cyan-rgb), .55);
+  --shadow-engraved: inset 0 1px 0 var(--border-engraved-top), inset 0 -1px 0 var(--border-engraved-bottom);
+
+  /* ---- Z-index scale ---- */
+  --z-bg: -10;
+  --z-base: 0;
+  --z-content: 1;
+  --z-nav: 100;
+  --z-cursor: 200;
+  --z-lightbox: 500;
+  --z-loader: 9999;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(.16, .84, .32, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 400ms;
+  --dur-slow: 800ms;
+  --dur-loader: 2200ms;
+}
+
+/* Breakpoint reference only — var() is not usable inside @media, kept here as documentation.
+   --bp-sm:480  --bp-md:768  --bp-lg:1024  --bp-xl:1280  --bp-xxl:1536 */
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  scroll-behavior: auto; /* Lenis owns smooth scroll — native smooth-scroll would double-ease */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg, canvas, video { display: block; max-width: 100%; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+p {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+a { overflow-wrap: anywhere; }
+
+::selection { background: var(--cyan); color: var(--void); }
+
+/* The single, permanent accessibility anchor — never overridden elsewhere in the codebase */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+.l-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.l-skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 10000;
+  background: var(--cyan);
+  color: var(--void);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.l-skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ---- Ambient background: gradient glow + noise, real DOM nodes, painted once ---- */
+.l-bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+  background: var(--grad-bg-glow);
+}
+
+.l-noise {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+  opacity: .025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Shared type utilities ---- */
+.c-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.c-eyebrow::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+}
+
+.c-mono-stat {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-stat);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+  color: var(--bone);
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,67 @@
+/* ============================================================
+   ACM UEMJ — animations.css
+   CSS-only keyframes for declarative, state-driven motion.
+   Everything sequenced, scroll-linked, or per-frame lives in JS
+   (GSAP) instead — see js/loader.js, js/scroll.js, js/animations.js.
+   ============================================================ */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes tick-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.3); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: .5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(var(--cyan-rgb), .4), 0 0 20px -8px rgba(var(--cyan-rgb), .4); }
+  50% { box-shadow: 0 0 0 1px rgba(var(--cyan-rgb), .5), 0 0 28px -6px rgba(var(--cyan-rgb), .6); }
+}
+.c-btn--primary { animation: btn-glow-pulse 3.2s var(--ease-in-out) infinite; }
+.c-btn--primary:hover,
+.c-btn--primary:focus-visible { animation-play-state: paused; }
+
+/* Testimonial marble-reflection sheen — diagonal light band sweeps on hover */
+.s-testimonials__card { position: relative; overflow: hidden; }
+.s-testimonials__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(var(--bone-rgb), .07) 50%, transparent 60%);
+  background-size: 220% 220%;
+  background-position: 120% 120%;
+  transition: background-position var(--dur-slow) var(--ease-out);
+  pointer-events: none;
+}
+.s-testimonials__card:hover::after { background-position: -20% -20%; }
+
+/* Sponsor wordmark hover already transition-based (components.css) — no keyframe required */
+
+/* ============================================================
+   Reduced motion — scoped overrides, never a blanket kill-switch
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .c-marquee__track,
+  .c-cursor,
+  .s-hero__scroll-cue svg,
+  .c-badge__dot,
+  .c-btn--primary,
+  .s-testimonials__card::after {
+    animation: none !important;
+  }
+  .c-marquee__track { transform: none !important; flex-wrap: wrap; width: 100%; justify-content: center; }
+
+  .c-card,
+  .c-btn,
+  .c-back-to-top,
+  .c-cursor__ring {
+    transition-duration: .01ms !important;
+  }
+}

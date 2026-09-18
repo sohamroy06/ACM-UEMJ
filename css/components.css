@@ -1,0 +1,493 @@
+/* ============================================================
+   ACM UEMJ — components.css
+   Reusable c-* components. Each owns its full visuals — never
+   redeclared from pages.css. See naming convention in README.
+   ============================================================ */
+
+/* Shared jali-lattice texture — extremely subtle (3-5%), never photographic */
+:root {
+  --jali-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23F4EDE2' stroke-width='.6'%3E%3Cpath d='M28 2 L54 28 L28 54 L2 28 Z'/%3E%3Ccircle cx='28' cy='28' r='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.c-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-hairline-strong);
+  box-shadow: var(--shadow-engraved);
+  background: var(--dune);
+  color: var(--bone);
+  white-space: nowrap;
+  transition: box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.c-btn--sm { padding: var(--space-3) var(--space-5); font-size: var(--fs-caption); }
+
+.c-btn--primary {
+  background: linear-gradient(180deg, rgba(var(--cyan-rgb), .12), transparent), var(--dune);
+  border-color: rgba(var(--cyan-rgb), .45);
+}
+.c-btn--primary:hover,
+.c-btn--primary:focus-visible {
+  box-shadow: var(--shadow-glow-cyan);
+  border-color: rgba(var(--cyan-rgb), .7);
+}
+
+.c-btn--ghost {
+  background: transparent;
+  border-color: var(--border-hairline-strong);
+}
+.c-btn--ghost:hover,
+.c-btn--ghost:focus-visible {
+  border-color: rgba(var(--bone-rgb), .4);
+  background: rgba(var(--bone-rgb), .04);
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.c-card {
+  position: relative;
+  isolation: isolate;
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.c-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--jali-pattern);
+  background-size: 56px 56px;
+  opacity: .04;
+  pointer-events: none;
+}
+.c-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-hairline-strong);
+}
+
+/* Opaque, no-blur variant — used wherever many cards render at once (perf budget) */
+.c-card--engraved {
+  background: var(--dune);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: var(--shadow-engraved), var(--shadow-card);
+}
+.c-card--engraved:hover {
+  box-shadow: var(--shadow-engraved), var(--shadow-card-hover);
+}
+
+.c-card--feature {
+  padding: var(--space-8);
+}
+
+.c-card--placard {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--dune);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.c-card--placard::before { display: none; }
+
+/* ============================================================
+   Badge / monogram
+   ============================================================ */
+.c-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-label);
+  letter-spacing: var(--ls-wide);
+  color: var(--slate);
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+  border: 1px solid var(--border-hairline-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(var(--void-rgb), .4);
+}
+.c-badge__dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px 1px rgba(var(--cyan-rgb), .8);
+  animation: tick-pulse 2.4s var(--ease-in-out) infinite;
+}
+
+.c-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  background: var(--dune);
+  border: 1px solid var(--border-hairline-strong);
+  flex-shrink: 0;
+}
+.c-monogram--jali {
+  width: 96px; height: 96px;
+  font-size: var(--fs-h3);
+  position: relative;
+}
+.c-monogram--jali::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--bone-rgb), .18);
+  background-image: var(--jali-pattern);
+  background-size: 40px 40px;
+  opacity: .12;
+}
+
+/* ============================================================
+   Nav
+   ============================================================ */
+.c-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: var(--z-nav);
+  transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.c-nav.has-scrolled {
+  background: rgba(var(--void-rgb), .72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.c-nav.is-hidden { transform: translateY(-100%); }
+
+.c-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-4);
+}
+
+.c-nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+.c-nav__logo svg { width: 132px; height: 32px; color: var(--bone); }
+
+.c-nav__progress { width: 28px; height: 28px; flex-shrink: 0; color: var(--cyan); }
+.c-nav__progress circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.c-nav__progress circle.c-nav__progress-track { stroke: var(--border-hairline-strong); }
+
+.c-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-inline: auto;
+}
+.c-nav__link {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--slate);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.c-nav__link:hover, .c-nav__link[aria-current="page"] { color: var(--bone); }
+
+.c-nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+}
+.c-nav__toggle span {
+  display: block;
+  width: 20px; height: 1.5px;
+  background: var(--bone);
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+.c-nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.c-nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.c-nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ============================================================
+   Accordion
+   ============================================================ */
+.c-accordion__item { border-bottom: 1px solid var(--border-hairline); }
+.c-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  text-align: left;
+  padding-block: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+}
+.c-accordion__trigger:hover { color: var(--cyan); }
+
+.c-accordion__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+}
+.c-accordion__icon .c-accordion__icon-plus,
+.c-accordion__icon .c-accordion__icon-node {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.c-accordion__icon-plus { stroke: var(--cyan); }
+.c-accordion__icon-node { stroke: var(--marigold); opacity: 0; transform: rotate(-90deg) scale(.6); }
+.c-accordion__trigger[aria-expanded="true"] .c-accordion__icon-plus { opacity: 0; transform: rotate(90deg) scale(.6); }
+.c-accordion__trigger[aria-expanded="true"] .c-accordion__icon-node { opacity: 1; transform: rotate(0) scale(1); }
+
+.c-accordion__panel {
+  height: 0;
+  overflow: hidden;
+  color: var(--slate);
+  line-height: var(--lh-relaxed);
+}
+.c-accordion__panel-inner { padding-bottom: var(--space-5); max-width: 62ch; }
+
+/* ============================================================
+   Field / input
+   ============================================================ */
+.c-field { display: flex; gap: var(--space-3); }
+.c-field__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: var(--space-3);
+}
+.c-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--void);
+  border: 1px solid var(--border-hairline-strong);
+  box-shadow: var(--shadow-engraved);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+}
+.c-input:focus-visible { border-color: var(--cyan); }
+.c-input::placeholder { color: var(--slate); }
+
+/* ============================================================
+   Marquee (sponsors)
+   ============================================================ */
+.c-marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  padding-block: var(--space-6);
+}
+.c-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-9);
+  width: max-content;
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+}
+.c-marquee.is-paused .c-marquee__track { animation-play-state: paused; }
+.c-marquee__track li {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--slate);
+  filter: grayscale(1);
+  opacity: .55;
+  transition: color var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out), filter var(--dur-base) var(--ease-out);
+  white-space: nowrap;
+}
+.c-sponsor-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border-hairline-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(var(--void-rgb), .28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--bone);
+  box-shadow: var(--shadow-engraved);
+}
+.c-sponsor-chip img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.c-sponsor-chip span:last-child {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+.c-sponsor-chip__fallback {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  color: var(--void);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+}
+.c-marquee__track li:hover {
+  color: var(--cyan);
+  filter: grayscale(0);
+  opacity: 1;
+}
+.c-marquee.is-static .c-marquee__track {
+  animation: none;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ============================================================
+   Divider
+   ============================================================ */
+.c-divider--yantra {
+  display: block;
+  width: 100%;
+  height: 20px;
+  color: var(--border-hairline-strong);
+  opacity: .6;
+}
+
+/* ============================================================
+   Cursor
+   ============================================================ */
+.c-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.c-cursor__dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--bone);
+}
+.c-cursor__ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 1px solid var(--bone);
+  transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out),
+              margin var(--dur-fast) var(--ease-out), border-radius var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out), filter var(--dur-fast) var(--ease-out);
+}
+.c-cursor.is-hovering .c-cursor__ring {
+  width: 64px; height: 64px;
+  margin: -32px 0 0 -32px;
+  background: rgba(var(--bone-rgb), .12);
+  filter: blur(1px);
+}
+
+@media (pointer: coarse) {
+  .c-cursor { display: none; }
+}
+
+/* ============================================================
+   Loader
+   ============================================================ */
+.c-loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--void);
+}
+.c-loader.is-hidden { display: none; }
+
+.c-loader__block {
+  position: absolute;
+  width: 160px; height: 160px;
+  border-radius: var(--radius-md);
+  background: var(--grad-warm);
+  opacity: 0;
+  transform: scale(.85);
+}
+
+.c-loader__engrave,
+.c-loader__circuit {
+  position: absolute;
+  width: 160px; height: 160px;
+  opacity: 0;
+}
+.c-loader__engrave { color: rgba(11, 13, 18, .55); }
+.c-loader__circuit { color: var(--cyan); filter: drop-shadow(0 0 10px rgba(var(--cyan-rgb), .6)); }
+
+.c-loader__wordmark {
+  position: absolute;
+  width: 240px; height: auto;
+  color: var(--bone);
+  opacity: 0;
+}
+
+/* Inheritable SVG presentation properties set here cascade into the
+   <use>'s cloned instance content — paths inside the referenced
+   symbols carry pathLength="1" so a single dasharray of 1 draws
+   the whole group uniformly regardless of individual path length. */
+.c-loader__engrave,
+.c-loader__circuit,
+.c-loader__wordmark {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* Back-to-top */
+.c-back-to-top {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-nav);
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--dune);
+  border: 1px solid var(--border-hairline-strong);
+  box-shadow: var(--shadow-engraved), var(--shadow-card);
+  color: var(--bone);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.c-back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.c-back-to-top:hover { border-color: rgba(var(--cyan-rgb), .5); color: var(--cyan); }
