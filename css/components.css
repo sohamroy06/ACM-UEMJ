@@ -492,10 +492,6 @@
 .c-back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .c-back-to-top:hover { border-color: rgba(var(--cyan-rgb), .5); color: var(--cyan); }
 
-/* ===================================================
-   ULTRA-MODERN INTERACTIVE DOMAIN CARDS (PRO LEVEL)
-   =================================================== */
-
 [class*="domain"], [class*="card"] {
     position: relative;
     overflow: hidden;
