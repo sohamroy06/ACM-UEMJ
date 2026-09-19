@@ -491,3 +491,37 @@
 }
 .c-back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .c-back-to-top:hover { border-color: rgba(var(--cyan-rgb), .5); color: var(--cyan); }
+
+/* =========================================
+   DOMAIN CARDS INTERACTIVE HOVER & TOUCH
+   ========================================= */
+
+[class*="domain"], [class*="card"] {
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease !important;
+    cursor: pointer;
+    will-change: transform, box-shadow;
+}
+
+[class*="domain"]:hover, [class*="card"]:hover {
+    transform: translateY(-8px) !important;
+    border-color: rgba(56, 189, 248, 0.6) !important;
+    box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.5),
+                0 0 18px rgba(56, 189, 248, 0.25) !important;
+}
+
+[class*="domain"]:active, [class*="card"]:active {
+    transform: translateY(-2px) scale(0.98) !important;
+    box-shadow: 0 4px 12px -2px rgba(56, 189, 248, 0.4) !important;
+}
+
+[class*="domain"]:hover svg, [class*="card"]:hover svg,
+[class*="domain"]:hover i, [class*="card"]:hover i,
+[class*="domain"]:hover img, [class*="card"]:hover img {
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7));
+}
