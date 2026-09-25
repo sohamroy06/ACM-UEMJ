@@ -1,5 +1,5 @@
 /* ============================================================
-   ACM UEMJ — pages.css
+   UEMJ ACM — pages.css
    Section-scoped (s-*) and layout-scoped (l-*) LAYOUT ONLY rules.
    Mobile-first. Never redeclares a component's own visuals
    (background/border/radius/shadow/color/padding) — see the
@@ -12,7 +12,8 @@
    ============================================================ */
 .c-nav__links-wrap { display: contents; }
 
-.c-nav__toggle { display: flex; margin-left: auto; }
+.c-nav__progress { order: 1; }
+.c-nav__toggle { display: flex; order: 2; margin-left: auto; }
 
 .c-nav__links {
   position: fixed;
@@ -240,8 +241,9 @@
 .s-testimonials { padding-block: var(--section-pad-y); }
 .s-testimonials h2 { margin-block: var(--space-4) var(--space-8); }
 .s-testimonials__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+.s-testimonials__card { display: flex; flex-direction: column; min-height: 260px; }
 .s-testimonials__card p:first-child { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); margin-bottom: var(--space-5); }
-.s-testimonials__author { color: var(--slate); font-size: var(--fs-small); }
+.s-testimonials__author { margin-top: auto; color: var(--slate); font-size: var(--fs-small); }
 .s-testimonials__author strong { color: var(--bone); }
 
 /* ============================================================
