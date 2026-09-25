@@ -1,5 +1,5 @@
 /* =========================================================================
-   ACM UEMJ — Global Script
+   UEMJ ACM — Global Script
    Vanilla JS. Shared across index.html, event.html, team.html.
    Every module guards on the elements it needs, so pages missing a
    particular section simply skip that module.
@@ -336,7 +336,7 @@
         const r = card.getBoundingClientRect();
         const px = (e.clientX - r.left) / r.width - 0.5;
         const py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `perspective(900px) rotateX(${-py * 7}deg) rotateY(${px * 9}deg) translateY(-6px)`;
+        card.style.transform = `perspective(900px) rotateX(${-py * 7}deg) rotateY(${px * 9}deg)`;
       });
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
@@ -383,14 +383,14 @@
      Gallery lightbox
      --------------------------------------------------------------------- */
   function initLightbox() {
-    const items = document.querySelectorAll('[data-lightbox]');
+    const items = document.querySelectorAll('.gallery-masonry .g-item');
     const box = document.getElementById('lightbox');
     if (!items.length || !box) return;
     const img = box.querySelector('img');
     const closeBtn = box.querySelector('.lightbox-close');
     const prevBtn = box.querySelector('.lightbox-nav.prev');
     const nextBtn = box.querySelector('.lightbox-nav.next');
-    const srcs = [...items].map((i) => i.dataset.lightbox);
+    const srcs = [...items].map((i) => i.querySelector('img').src);
     let idx = 0;
 
     function show(i) {
@@ -491,6 +491,34 @@
       input.value = '';
       setTimeout(() => { btn.textContent = original; }, 2400);
     });
+  }
+
+  /* ---------------------------------------------------------------------
+     Event countdown
+     --------------------------------------------------------------------- */
+  function initCountdown() {
+    const el = document.getElementById('countdown');
+    if (!el) return;
+    const target = new Date(el.dataset.target).getTime();
+    const d = el.querySelector('[data-unit="d"]');
+    const h = el.querySelector('[data-unit="h"]');
+    const m = el.querySelector('[data-unit="m"]');
+    const s = el.querySelector('[data-unit="s"]');
+
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) { el.innerHTML = '<div class="countdown-num" style="grid-column:1/-1;">Event is live!</div>'; return; }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+      if (d) d.textContent = String(days).padStart(2, '0');
+      if (h) h.textContent = String(hours).padStart(2, '0');
+      if (m) m.textContent = String(mins).padStart(2, '0');
+      if (s) s.textContent = String(secs).padStart(2, '0');
+      requestAnimationFrame(() => setTimeout(tick, 1000));
+    }
+    tick();
   }
 
   /* ---------------------------------------------------------------------
@@ -619,6 +647,7 @@
     initBackToTop();
     initContactForm();
     initNewsletter();
+    initCountdown();
     initEventFilters();
     initTeamPage();
   });
