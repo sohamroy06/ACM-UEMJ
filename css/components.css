@@ -1,5 +1,5 @@
 /* ============================================================
-   ACM UEMJ — components.css
+   UEMJ ACM — components.css
    Reusable c-* components. Each owns its full visuals — never
    redeclared from pages.css. See naming convention in README.
    ============================================================ */
@@ -66,7 +66,7 @@
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   overflow: hidden;
-  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  transition: translate var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
 }
 .c-card::before {
   content: '';
@@ -79,7 +79,7 @@
   pointer-events: none;
 }
 .c-card:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px !important;
   box-shadow: var(--shadow-card-hover);
   border-color: var(--border-hairline-strong);
 }
@@ -149,6 +149,7 @@
   font-size: var(--fs-h3);
   position: relative;
 }
+.c-monogram--jali img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .c-monogram--jali::before {
   content: '';
   position: absolute;
@@ -185,7 +186,7 @@
 }
 
 .c-nav__logo { display: flex; align-items: center; flex-shrink: 0; }
-.c-nav__logo img { width: 140px; height: 63px; object-fit: contain; }
+.c-nav__logo svg { width: 132px; height: 32px; color: var(--bone); }
 
 .c-nav__progress { width: 28px; height: 28px; flex-shrink: 0; color: var(--cyan); }
 .c-nav__progress circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
@@ -491,39 +492,3 @@
 }
 .c-back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .c-back-to-top:hover { border-color: rgba(var(--cyan-rgb), .5); color: var(--cyan); }
-
-[class*="domain"], [class*="card"] {
-    position: relative;
-    overflow: hidden;
-    background: rgba(18, 20, 29, 0.6) !important;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.4s ease,
-                box-shadow 0.4s ease,
-                background 0.4s ease !important;
-    will-change: transform, box-shadow;
-}
-
-/* Diagonal glass light sweep effect */
-[class*="domain"]::before, [class*="card"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -130%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.08),
-        transparent
-    );
-    transition: all 0.7s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
