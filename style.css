@@ -1,5 +1,5 @@
 /* =========================================================================
-   ACM UEMJ — Global Stylesheet
+   UEMJ ACM — Global Stylesheet
    Vanilla CSS3. No frameworks. Shared across index.html, event.html, team.html
    ========================================================================= */
 
@@ -376,7 +376,7 @@ p{ color: var(--muted); }
   position:relative; background: var(--grad-card); border:1px solid var(--border);
   border-radius: var(--radius-lg); backdrop-filter: blur(12px); overflow:hidden;
   box-shadow: var(--shadow-card);
-  transition: transform var(--dur-mid) var(--ease-soft), border-color var(--dur-mid) var(--ease-soft), box-shadow var(--dur-mid) var(--ease-soft);
+  transition: translate var(--dur-mid) var(--ease-soft), transform var(--dur-mid) var(--ease-soft), border-color var(--dur-mid) var(--ease-soft), box-shadow var(--dur-mid) var(--ease-soft);
 }
 .glass-card::before{
   content:''; position:absolute; inset:0; padding:1px; border-radius:inherit;
@@ -385,7 +385,7 @@ p{ color: var(--muted); }
   -webkit-mask-composite: xor; mask-composite: exclude;
   opacity:0; transition: opacity var(--dur-mid) var(--ease-soft); pointer-events:none;
 }
-.glass-card:hover{ transform: translateY(-8px); box-shadow: 0 40px 90px -30px rgba(0,212,255,.28); }
+.glass-card:hover{ translate: 0 -8px; box-shadow: 0 40px 90px -30px rgba(0,212,255,.28); }
 .glass-card:hover::before{ opacity:1; }
 .tilt{ transform-style:preserve-3d; will-change: transform; }
 
@@ -845,9 +845,8 @@ p{ color: var(--muted); }
 .tl-card{ grid-column:1; padding:0; overflow:hidden; }
 .tl-item:nth-child(even) .tl-card{ grid-column:3; }
 .tl-item:nth-child(even) .tl-empty{ grid-column:1; }
-.tl-card-img{ height:210px; overflow:hidden; position:relative; }
-.tl-card-img img{ width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease-soft); }
-.tl-card:hover .tl-card-img img{ transform:scale(1.07); }
+.tl-card-img{ overflow:hidden; position:relative; background:var(--surface-2); }
+.tl-card-img img{ display:block; width:100%; height:auto; object-fit:contain; }
 .tl-card-body{ padding:28px 30px; }
 .tl-date{ display:inline-block; padding:5px 14px; border-radius:var(--radius-pill); background: rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.25); color:var(--cyan); font-size:.76rem; font-weight:700; margin-bottom:14px; }
 .tl-card-body h3{ font-size:1.34rem; margin-bottom:12px; }
@@ -933,8 +932,9 @@ p{ color: var(--muted); }
   }
   .nav-links.active{ transform:none; }
   .nav-links a{ width:100%; padding:16px 6px; font-size:1.1rem; border-bottom:1px solid var(--border); }
-  .nav-toggle{ display:flex; }
-  .nav-cta .btn-ghost{ display:none; }
+  .site-nav nav{ display:contents; }
+  .site-nav .nav-cta{ display:none; }
+  .site-nav .nav-toggle{ display:flex; margin-left:auto; }
   .stats-grid{ grid-template-columns: repeat(2, 1fr); gap:30px; }
   .stat-item:nth-child(2)::before{ display:none; }
   .why-grid{ grid-template-columns:1fr; }
@@ -968,7 +968,6 @@ p{ color: var(--muted); }
   .tl-item, .tl-item:nth-child(even){ grid-template-columns: 18px 1fr; margin-bottom:34px; }
   .tl-dot{ grid-column:1; width:14px; height:14px; margin-top:30px; }
   .tl-card, .tl-item:nth-child(even) .tl-card{ grid-column:2; }
-  .tl-card-img{ height:180px; }
   .tl-card-body{ padding:22px 20px; }
 
   .team-toolbar{ margin-bottom:34px; }
