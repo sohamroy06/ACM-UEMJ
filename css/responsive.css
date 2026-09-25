@@ -1,5 +1,5 @@
 /* ============================================================
-   ACM UEMJ — responsive.css
+   UEMJ ACM — responsive.css
    Breakpoint-only overrides: grid-template-columns swaps and
    nav toggling — everything clamp() already handles fluidly is
    NOT repeated here. Section-ordered to mirror pages.css 1:1.
@@ -162,9 +162,7 @@
 
 /* ---- Testimonials: staggered offsets ---- */
 @media (min-width: 1024px) {
-  .s-testimonials__grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
-  .s-testimonials__grid > li:nth-child(2) { transform: translateY(48px); }
-  .s-testimonials__grid > li:nth-child(3) { transform: translateY(-16px); }
+  .s-testimonials__grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 }
 
 /* ---- Gallery ---- */
