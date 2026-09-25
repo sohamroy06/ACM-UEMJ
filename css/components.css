@@ -185,7 +185,7 @@
 }
 
 .c-nav__logo { display: flex; align-items: center; flex-shrink: 0; }
-.c-nav__logo svg { width: 132px; height: 32px; color: var(--bone); }
+.c-nav__logo img { width: 140px; height: 63px; object-fit: contain; }
 
 .c-nav__progress { width: 28px; height: 28px; flex-shrink: 0; color: var(--cyan); }
 .c-nav__progress circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
@@ -527,41 +527,3 @@
     z-index: 1;
 }
 
-/* Hover par card lift aur intense ambient aura glow */
-[class*="domain"]:hover, [class*="card"]:hover {
-    transform: translateY(-10px) scale(1.01) !important;
-    background: rgba(22, 27, 40, 0.85) !important;
-    border-color: rgba(56, 189, 248, 0.7) !important;
-    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7),
-                0 0 25px -4px rgba(56, 189, 248, 0.35) !important;
-}
-
-/* Light beam sweep chalegi */
-[class*="domain"]:hover::before, [class*="card"]:hover::before {
-    left: 130%;
-}
-
-/* Click/Touch instant haptic response */
-[class*="domain"]:active, [class*="card"]:active {
-    transform: translateY(-3px) scale(0.98) !important;
-    box-shadow: 0 6px 16px -2px rgba(56, 189, 248, 0.5) !important;
-}
-
-/* Icon rotation + neon pop */
-[class*="domain"]:hover svg, [class*="card"]:hover svg,
-[class*="domain"]:hover i, [class*="card"]:hover i,
-[class*="domain"]:hover img, [class*="card"]:hover img {
-    transform: scale(1.18) rotate(3deg);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.85));
-}
-
-/* Card title neon shimmer */
-[class*="domain"]:hover h3, 
-[class*="domain"]:hover h4,
-[class*="card"]:hover h3, 
-[class*="card"]:hover h4 {
-    color: #38bdf8 !important;
-    transition: color 0.3s ease;
-    text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-}

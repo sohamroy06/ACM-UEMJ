@@ -494,34 +494,6 @@
   }
 
   /* ---------------------------------------------------------------------
-     Event countdown
-     --------------------------------------------------------------------- */
-  function initCountdown() {
-    const el = document.getElementById('countdown');
-    if (!el) return;
-    const target = new Date(el.dataset.target).getTime();
-    const d = el.querySelector('[data-unit="d"]');
-    const h = el.querySelector('[data-unit="h"]');
-    const m = el.querySelector('[data-unit="m"]');
-    const s = el.querySelector('[data-unit="s"]');
-
-    function tick() {
-      const diff = target - Date.now();
-      if (diff <= 0) { el.innerHTML = '<div class="countdown-num" style="grid-column:1/-1;">Event is live!</div>'; return; }
-      const days = Math.floor(diff / 86400000);
-      const hours = Math.floor((diff % 86400000) / 3600000);
-      const mins = Math.floor((diff % 3600000) / 60000);
-      const secs = Math.floor((diff % 60000) / 1000);
-      if (d) d.textContent = String(days).padStart(2, '0');
-      if (h) h.textContent = String(hours).padStart(2, '0');
-      if (m) m.textContent = String(mins).padStart(2, '0');
-      if (s) s.textContent = String(secs).padStart(2, '0');
-      requestAnimationFrame(() => setTimeout(tick, 1000));
-    }
-    tick();
-  }
-
-  /* ---------------------------------------------------------------------
      Events page: filter bar + search
      --------------------------------------------------------------------- */
   function initEventFilters() {
@@ -647,7 +619,6 @@
     initBackToTop();
     initContactForm();
     initNewsletter();
-    initCountdown();
     initEventFilters();
     initTeamPage();
   });

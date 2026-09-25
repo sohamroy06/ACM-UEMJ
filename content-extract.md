@@ -74,14 +74,11 @@ Mini-cards:
 - **Logic Ladder** — Quiz, debugging and implementation rounds under TechUtopia 2025.
 - **Git & GitHub Workshop** — Version control essentials for 250+ students.
 
-### Chairperson Message
-> "ACM UEMJ exists so that the first line of code you ever ship isn't your last. We build the room where students take risks, fail in public, and come out the other side as engineers."
-— **Rakesh Bangra**, Chairperson, ACM UEMJ Student Chapter
-
-### Testimonials
-- "AceHack was the first time I shipped a working product in under 36 hours. The mentors pushed us to actually finish, not just prototype." — **Arnab Basak**, Graphics Team
-- "The Git & GitHub workshop finally made version control click for me. Two months later I was reviewing my juniors' pull requests." — **Souvik Chowdhury**, Graphics Team
-- "HackUEM introduced me to Web3 development. Six months later I landed an internship building on Algorand." — **Abhinay Agarwal**, Social Media Team
+### What Our Leads Say
+- "ACM UEMJ gives every builder the space to turn a rough idea into something real, with people who keep the momentum going." — **Aman Mishra**
+- "The strongest part of our community is how quickly people move from learning together to leading together." — **Jayti Shree**
+- "We build more than events here: we build the confidence to ask better questions, ship better work and bring others along." — **Soham Roy**
+- "Every successful program is a team effort, and ACM UEMJ makes that collaboration feel both ambitious and genuinely welcoming." — **Piyush Sarkar**
 
 ### Gallery captions
 Hackathon Night · Tech Talk · Workshop · Coding Session · Brainstorming · Award Ceremony · Code Wars · Collaboration
@@ -106,7 +103,7 @@ Algorand · Aptos · Polygon · Stellar · Devfolio · Nordek · Orkes · Stacks
 ### Footer
 The Association for Computing Machinery Student Chapter at University of Engineering & Management, Jaipur — building the next generation of computing talent.
 © 2026 ACM UEMJ Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
-Designed & built by Subhranil Baul.
+Designed & built by Soham Roy (https://www.linkedin.com/in/soham-roy-8a664a320/).
 
 ---
 
@@ -174,7 +171,7 @@ Stats: 5 Faculty Coordinators · 8 Executive Board · 13 Core Team Members
 - **Dikansha Bindal** — Vice Chair (internal operations & engagement)
 - **Sumit Sharma** — Secretary (documentation & member records)
 - **Gagandeep S. Shekhawat** — Treasurer (finances & sponsorships)
-- **Subhranil Baul** — Web Master (website & digital infrastructure)
+- **Soham Roy** — Web Master (website & digital infrastructure)
 - **Chetan Yadav** — Marketing Head (social media & outreach)
 - **Aastha Sinha** — Content Head (content & communications)
 - **Kritika Sharma** — Graphics Head (creative design & branding)
@@ -204,4 +201,4 @@ The Association for Computing Machinery Student Chapter at University of Enginee
 **Stay in the loop**: Get notified about new hackathons and workshops. [Subscribe]
 
 © 2026 ACM UEMJ Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
-Designed & built by Subhranil Baul.
+Designed & built by Soham Roy (https://www.linkedin.com/in/soham-roy-8a664a320/).
