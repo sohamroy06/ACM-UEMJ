@@ -168,17 +168,12 @@
 .s-domains__head h2 { margin-top: var(--space-4); }
 
 .s-domains__rail {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-5);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-inline: var(--container-pad);
-  padding-bottom: var(--space-4);
-  scrollbar-width: thin;
 }
 .s-domains__card {
-  flex: 0 0 min(78vw, 320px);
-  scroll-snap-align: start;
+  min-width: 0;
 }
 .s-domains__icon { width: 40px; height: 40px; color: var(--sandstone); margin-bottom: var(--space-5); }
 .s-domains__tag {
@@ -329,7 +324,7 @@
   padding-block: var(--space-8);
 }
 .s-footer__about { display: flex; flex-direction: column; gap: var(--space-5); }
-.s-footer__logo { width: 148px; height: auto; color: var(--bone); }
+.s-footer__logo { width: 84px; height: auto; }
 .s-footer__about p { color: var(--slate); font-size: var(--fs-small); max-width: 42ch; }
 .s-footer__socials { display: flex; gap: var(--space-4); }
 .s-footer__socials a { color: var(--slate); transition: color var(--dur-fast) var(--ease-out); }
@@ -345,12 +340,14 @@
 
 .s-footer__bottom {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-2);
   padding-block: var(--space-6);
   border-top: 1px solid var(--border-hairline);
-  color: var(--slate);
+  color: #626d7d;
   font-size: var(--fs-caption);
 }
-.s-footer__bottom a { color: var(--slate); text-decoration: underline; text-underline-offset: 2px; }
-.s-footer__bottom a:hover { color: var(--cyan); }
+.s-footer__bottom a { color: #00d4ff; text-decoration: none; }
+.s-footer__bottom a:hover { color: #00d4ff; }

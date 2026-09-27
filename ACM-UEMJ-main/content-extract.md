@@ -1,4 +1,4 @@
-# ACM UEMJ — Website Content Extract
+# UEMJ ACM — Website Content Extract
 
 ---
 
@@ -25,7 +25,7 @@ Home · About · Domains · Events · Team · Contact · [Join Us]
 
 ### About — "A global body, grounded locally."
 Eyebrow: Who we are
-Intro: ACM UEMJ carries the mission of the world's largest computing society onto our own campus — turning global standards for learning and innovation into hands-on, local experience.
+Intro: UEMJ ACM carries the mission of the world's largest computing society onto our own campus — turning global standards for learning and innovation into hands-on, local experience.
 
 **// Global Body — Association for Computing Machinery**
 ACM is the premier membership organization for computing professionals, delivering resources that advance computing as a science and a profession. It hosts the industry's leading Digital Library and serves its global members through journals, conferences, workshops and a dedicated Learning Center.
@@ -74,11 +74,14 @@ Mini-cards:
 - **Logic Ladder** — Quiz, debugging and implementation rounds under TechUtopia 2025.
 - **Git & GitHub Workshop** — Version control essentials for 250+ students.
 
-### What Our Leads Say
-- "ACM UEMJ gives every builder the space to turn a rough idea into something real, with people who keep the momentum going." — **Aman Mishra**
-- "The strongest part of our community is how quickly people move from learning together to leading together." — **Jayti Shree**
-- "We build more than events here: we build the confidence to ask better questions, ship better work and bring others along." — **Soham Roy**
-- "Every successful program is a team effort, and ACM UEMJ makes that collaboration feel both ambitious and genuinely welcoming." — **Piyush Sarkar**
+### Chairperson Message
+> "UEMJ ACM exists so that the first line of code you ever ship isn't your last. We build the room where students take risks, fail in public, and come out the other side as engineers."
+— **Rakesh Bangra**, Chairperson, UEMJ ACM Student Chapter
+
+### Testimonials
+- "AceHack was the first time I shipped a working product in under 36 hours. The mentors pushed us to actually finish, not just prototype." — **Arnab Basak**, Graphics Team
+- "The Git & GitHub workshop finally made version control click for me. Two months later I was reviewing my juniors' pull requests." — **Souvik Chowdhury**, Graphics Team
+- "HackUEM introduced me to Web3 development. Six months later I landed an internship building on Algorand." — **Abhinay Agarwal**, Social Media Team
 
 ### Gallery captions
 Hackathon Night · Tech Talk · Workshop · Coding Session · Brainstorming · Award Ceremony · Code Wars · Collaboration
@@ -87,11 +90,11 @@ Hackathon Night · Tech Talk · Workshop · Coding Session · Brainstorming · A
 Algorand · Aptos · Polygon · Stellar · Devfolio · Nordek · Orkes · Stacks
 
 ### FAQ
-- **Who can join ACM UEMJ?** Any UEM Jaipur student, regardless of year or branch, is welcome. Membership is free — just join our WhatsApp community to get started.
+- **Who can join UEMJ ACM?** Any UEM Jaipur student, regardless of year or branch, is welcome. Membership is free — just join our WhatsApp community to get started.
 - **Do I need prior coding experience for hackathons?** No. AceHack and HackUEM welcome first-timers — mentors and pre-hackathon workshops help you ramp up fast. Bring curiosity, we'll help with the rest.
 - **How do I stay updated on upcoming events?** Follow us on Instagram and LinkedIn, and join our WhatsApp community — every workshop, hackathon and DSP session is announced there first.
 - **Can I join a specific domain team (Design, Content, Web Dev)?** Yes — we open recruitment for Core Team roles each semester. Check our socials for the application form, or reach out to any current team lead listed on our Team page.
-- **Are ACM UEMJ events free to attend?** Most workshops and talks are free for students. Flagship hackathons may have a nominal registration fee to cover meals and swag — always announced in advance.
+- **Are UEMJ ACM events free to attend?** Most workshops and talks are free for students. Flagship hackathons may have a nominal registration fee to cover meals and swag — always announced in advance.
 
 ### Contact
 "Let's build something together" — Questions about membership, sponsorship or collaboration — drop us a line.
@@ -102,15 +105,15 @@ Algorand · Aptos · Polygon · Stellar · Devfolio · Nordek · Orkes · Stacks
 
 ### Footer
 The Association for Computing Machinery Student Chapter at University of Engineering & Management, Jaipur — building the next generation of computing talent.
-© 2026 ACM UEMJ Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
-Designed & built by Soham Roy (https://www.linkedin.com/in/soham-roy-8a664a320/).
+© 2026 UEMJ ACM Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
+Designed & built by Subhranil Baul.
 
 ---
 
 ## EVENTS PAGE (event.html)
 
 ### Header
-Events & Activities — Every hackathon, workshop and distinguished speaker session that has shaped the ACM UEMJ community — explore the full archive below.
+Events & Activities — Every hackathon, workshop and distinguished speaker session that has shaped the UEMJ ACM community — explore the full archive below.
 Stats: 9000+ Registrations · 15+ Flagship Events · 50+ Cities Reached
 
 ### Save the Date
@@ -156,7 +159,7 @@ Hackathon · Tech Talk · Workshop · Code Wars · Team Discussion · Developmen
 ## TEAM PAGE (team.html)
 
 ### Header
-Meet the Team — The faculty mentors, executive board and core team members who plan, build and run everything ACM UEMJ does.
+Meet the Team — The faculty mentors, executive board and core team members who plan, build and run everything UEMJ ACM does.
 Stats: 5 Faculty Coordinators · 8 Executive Board · 13 Core Team Members
 
 ### Faculty Advisors
@@ -171,7 +174,7 @@ Stats: 5 Faculty Coordinators · 8 Executive Board · 13 Core Team Members
 - **Dikansha Bindal** — Vice Chair (internal operations & engagement)
 - **Sumit Sharma** — Secretary (documentation & member records)
 - **Gagandeep S. Shekhawat** — Treasurer (finances & sponsorships)
-- **Soham Roy** — Web Master (website & digital infrastructure)
+- **Subhranil Baul** — Web Master (website & digital infrastructure)
 - **Chetan Yadav** — Marketing Head (social media & outreach)
 - **Aastha Sinha** — Content Head (content & communications)
 - **Kritika Sharma** — Graphics Head (creative design & branding)
@@ -200,5 +203,5 @@ The Association for Computing Machinery Student Chapter at University of Enginee
 **Resources**: Gallery · Contact · Join Community · ACM Global
 **Stay in the loop**: Get notified about new hackathons and workshops. [Subscribe]
 
-© 2026 ACM UEMJ Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
-Designed & built by Soham Roy (https://www.linkedin.com/in/soham-roy-8a664a320/).
+© 2026 UEMJ ACM Student Chapter — University of Engineering & Management, Jaipur. All Rights Reserved.
+Designed & built by Subhranil Baul.

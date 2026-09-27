@@ -1,10 +1,10 @@
-# ACM UEMJ
+# UEMJ ACM
 
 Official website for the ACM Student Chapter at UEM Jaipur.
 
 ## About
 
-ACM UEMJ is a community of student builders, hackers, and researchers working through hackathons, workshops, speaker sessions, and hands-on technical programs.
+UEMJ ACM is a community of student builders, hackers, and researchers working through hackathons, workshops, speaker sessions, and hands-on technical programs.
 
 ## Pages
 
@@ -37,5 +37,5 @@ Then visit `http://localhost:8000`.
 
 ## License
 
-This repository contains the ACM UEMJ chapter website. Contact the chapter maintainers before reusing branding, content, or media.
+This repository contains the UEMJ ACM chapter website. Contact the chapter maintainers before reusing branding, content, or media.
 
