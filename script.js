@@ -534,6 +534,12 @@
   function initEventFilters() {
     const bar = document.getElementById('eventFilters');
     const search = document.getElementById('eventSearch');
+    const timeline = document.querySelector('.timeline');
+    if (timeline) {
+      Array.from(timeline.children)
+        .sort((a, b) => (Number(a.dataset.order) || Number.MAX_SAFE_INTEGER) - (Number(b.dataset.order) || Number.MAX_SAFE_INTEGER))
+        .forEach((item) => timeline.appendChild(item));
+    }
     const items = document.querySelectorAll('.tl-item');
     const noResults = document.getElementById('noResults');
     if (!items.length) return;
