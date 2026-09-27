@@ -215,11 +215,9 @@ p{ color: var(--muted); }
 @keyframes core-pulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.18); } }
 
 .preloader-mark{
-  font-family:var(--f-display); font-size:1.5rem; font-weight:800; letter-spacing:-0.01em;
-  background: var(--grad-fusion); -webkit-background-clip:text; background-clip:text; color:transparent;
-  background-size:200% auto; animation: shimmer 2.4s linear infinite;
+  display:block; width:120px; height:auto; object-fit:contain;
+  filter:drop-shadow(0 0 14px rgba(0,229,255,.35));
 }
-@keyframes shimmer{ to{ background-position: 200% center; } }
 .preloader-percent{ font-family:var(--f-mono); font-size:.82rem; letter-spacing:.14em; color:var(--gold); }
 .preloader-tag{ font-family:var(--f-mono); font-size:.72rem; letter-spacing:.25em; color:var(--muted); text-transform:uppercase; margin-top:4px; }
 
@@ -233,7 +231,6 @@ p{ color: var(--muted); }
   .mandala-ring, .mandala-ring-inner{ animation:none; stroke-dashoffset:0; }
   .mandala-spoke{ animation:none; opacity:.85; }
   .mandala-core{ animation:none; }
-  .preloader-mark{ animation:none; background-position:0 center; }
 }
 
 /* =========================================================================
@@ -808,15 +805,16 @@ p{ color: var(--muted); }
 .page-hero-stats{ display:flex; justify-content:center; gap:50px; margin-top:44px; flex-wrap:wrap; }
 
 /* =========================================================================
-   EVENTS PAGE — countdown, filters, timeline
+  EVENTS PAGE — upcoming event, filters, timeline
    ========================================================================= */
-.countdown-card{ display:grid; grid-template-columns: 1fr auto; gap:30px; align-items:center; padding:38px 44px; }
-.countdown-info h3{ font-size:1.5rem; margin-bottom:8px; }
-.countdown-info p{ font-size:.92rem; }
-.countdown-timer{ display:flex; gap:14px; }
-.countdown-unit{ text-align:center; min-width:70px; }
-.countdown-num{ font-family:var(--f-display); font-size:2.1rem; font-weight:800; color:var(--cyan); background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 0; }
-.countdown-label{ font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-top:8px; }
+.upcoming-event-card{ display:grid; grid-template-columns: minmax(0, 1fr) auto auto; gap:24px; align-items:center; padding:38px 44px; }
+.upcoming-event-info h3{ font-size:1.5rem; margin-bottom:8px; }
+.upcoming-event-info p{ font-size:.92rem; }
+.upcoming-event-countdown{ display:grid; grid-template-columns:repeat(4, minmax(48px, 1fr)); gap:8px; width:min(100%, 300px); }
+.upcoming-countdown-unit{ min-width:0; text-align:center; }
+.upcoming-countdown-value{ display:block; padding:8px 4px; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface-2); color:var(--cyan); font-family:var(--f-display); font-size:1.35rem; font-weight:800; font-variant-numeric:tabular-nums; }
+.upcoming-countdown-label{ display:block; margin-top:6px; color:var(--muted); font-size:.62rem; text-transform:uppercase; }
+.upcoming-countdown-status{ grid-column:1/-1; text-align:center; color:var(--cyan); font-weight:700; }
 
 .filter-bar{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:50px; }
 .filter-btn{
@@ -943,9 +941,8 @@ p{ color: var(--muted); }
   .gallery-masonry{ columns: 2 160px; }
   .footer-grid{ grid-template-columns:1fr; gap:34px; }
   .form-row{ grid-template-columns:1fr; }
-  .countdown-card{ grid-template-columns:1fr; text-align:center; }
-  .countdown-timer{ justify-content:center; }
-  .countdown-info{ text-align:center; }
+  .upcoming-event-card{ grid-template-columns:1fr; justify-items:center; text-align:center; }
+  .upcoming-event-info{ text-align:center; }
   .page-hero-stats{ gap:28px; }
   .search-input-wrap{ margin-left:0; width:100%; }
   .contact-form, .contact-side{ padding:30px 24px; }
@@ -956,9 +953,7 @@ p{ color: var(--muted); }
   .page-hero p{ font-size: .98rem; }
   .page-hero-stats{ gap:18px; }
 
-  .countdown-card{ padding:28px 20px; }
-  .countdown-timer{ flex-wrap:wrap; justify-content:center; }
-  .countdown-unit{ min-width:64px; flex:1 1 44%; }
+  .upcoming-event-card{ padding:28px 20px; }
 
   .filter-bar{ gap:10px; }
   .filter-btn{ width:100%; }
@@ -979,7 +974,6 @@ p{ color: var(--muted); }
 }
 
 @media (max-width: 520px){
-  .countdown-unit{ flex-basis: calc(50% - 7px); }
   .filter-btn{ flex:1 1 100%; }
   .page-hero-stats{ gap:14px; }
   .stat-item{ min-width: 120px; }

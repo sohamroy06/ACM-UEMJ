@@ -186,7 +186,7 @@
 }
 
 .c-nav__logo { display: flex; align-items: center; flex-shrink: 0; }
-.c-nav__logo svg { width: 132px; height: 32px; color: var(--bone); }
+.c-nav__logo img { width: auto; height: 36px; }
 
 .c-nav__progress { width: 28px; height: 28px; flex-shrink: 0; color: var(--cyan); }
 .c-nav__progress circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
@@ -454,8 +454,7 @@
 
 .c-loader__wordmark {
   position: absolute;
-  width: 240px; height: auto;
-  color: var(--bone);
+  width: 140px; height: auto;
   opacity: 0;
 }
 
@@ -464,8 +463,7 @@
    symbols carry pathLength="1" so a single dasharray of 1 draws
    the whole group uniformly regardless of individual path length. */
 .c-loader__engrave,
-.c-loader__circuit,
-.c-loader__wordmark {
+.c-loader__circuit {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
 }

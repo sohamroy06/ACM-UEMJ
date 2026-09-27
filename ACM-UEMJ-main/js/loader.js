@@ -63,8 +63,8 @@ export function runLoader() {
   tl.to(engrave, { opacity: 0, duration: 0.5 }, '<');
   tl.to(block, { opacity: 0, duration: 0.5 }, '<');
 
-  // 4. Circuit fades out while the wordmark independently stroke-draws in underneath
-  tl.to(wordmark, { opacity: 1, strokeDashoffset: 0, duration: 0.6, ease: 'power1.inOut' }, '+=0.05');
+  // 4. Circuit fades out while the logo fades in underneath
+  tl.to(wordmark, { opacity: 1, duration: 0.6, ease: 'power1.inOut' }, '+=0.05');
   tl.to(circuit, { opacity: 0, duration: 0.5 }, '<');
 
   // 5. Cyan glow pulse on the wordmark

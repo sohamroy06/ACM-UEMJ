@@ -29,6 +29,10 @@
 
 /* ---- Small screens ---- */
 @media (max-width: 959px) {
+  .s-domains__rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .s-hero {
     min-height: auto;
     padding-top: calc(var(--space-8) + 72px);
@@ -84,16 +88,16 @@
 }
 
 @media (max-width: 480px) {
+  .s-domains__rail {
+    grid-template-columns: 1fr;
+  }
+
   .s-hero__headline {
     font-size: clamp(2.4rem, 13vw, 3.8rem);
   }
 
   .s-hero__scroll-cue {
     bottom: var(--space-4);
-  }
-
-  .s-domains__card {
-    flex-basis: 84vw;
   }
 
   .s-events__featured h3 {
