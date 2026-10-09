@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="events-page">
 
 <div class="preloader" id="preloader">
   <svg class="preloader-mandala" viewBox="0 0 200 200" aria-hidden="true">
@@ -89,17 +89,18 @@
     <div class="container">
       <div class="glass-card upcoming-event-card reveal">
         <div class="upcoming-event-info">
-          <div class="eyebrow">Upcoming Event</div>
+          <div class="eyebrow">Recent Event</div>
           <h3>Byte Battle</h3>
-          <p>Register now to take part in Byte Battle.</p>
+          <p>Byte Battle has ended. Registration is closed.</p>
         </div>
-        <div class="upcoming-event-countdown" id="byteBattleCountdown" data-target="2026-10-05T00:00:00+05:30" role="timer" aria-label="Countdown to Byte Battle on October 5">
+        <div class="upcoming-event-countdown is-ended" id="byteBattleCountdown" data-target="2026-10-05T00:00:00+05:30" role="status" aria-label="Byte Battle registration is closed">
           <div class="upcoming-countdown-unit"><span class="upcoming-countdown-value" data-unit="d">00</span><span class="upcoming-countdown-label">Days</span></div>
           <div class="upcoming-countdown-unit"><span class="upcoming-countdown-value" data-unit="h">00</span><span class="upcoming-countdown-label">Hours</span></div>
           <div class="upcoming-countdown-unit"><span class="upcoming-countdown-value" data-unit="m">00</span><span class="upcoming-countdown-label">Mins</span></div>
           <div class="upcoming-countdown-unit"><span class="upcoming-countdown-value" data-unit="s">00</span><span class="upcoming-countdown-label">Secs</span></div>
+          <p class="upcoming-countdown-status">Registration closed</p>
         </div>
-        <a class="btn btn-primary" href="https://forms.gle/qUNnq1eggDbK82V1A">Register Now</a>
+        <span class="btn btn-primary is-disabled" aria-disabled="true">Registration Closed</span>
       </div>
     </div>
   </section>
@@ -121,7 +122,7 @@
 
       <div class="timeline">
 
-        <div class="tl-item" data-category="hackathon" data-order="6">
+        <div class="tl-item" data-category="hackathon" data-date="2026-07-27" data-order="6">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -136,7 +137,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="competition" data-order="2">
+        <div class="tl-item" data-category="competition" data-date="2026-09-11" data-order="2">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -151,7 +152,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="competition" data-order="1">
+        <div class="tl-item" data-category="competition" data-date="2026-10-05" data-order="1">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -166,7 +167,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="hackathon" data-order="3">
+        <div class="tl-item" data-category="hackathon" data-date="2026-09-11" data-order="3">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -181,7 +182,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="hackathon" data-order="7">
+        <div class="tl-item" data-category="hackathon" data-date="2026-02-27" data-order="7">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -196,7 +197,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="talk" data-order="8">
+        <div class="tl-item" data-category="talk" data-date="2026-02-23" data-order="8">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -211,7 +212,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="workshop">
+        <div class="tl-item" data-category="workshop" data-date="2024-08-23">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -226,7 +227,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="workshop">
+        <div class="tl-item" data-category="workshop" data-date="2024-07-27">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -241,7 +242,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="hackathon">
+        <div class="tl-item" data-category="hackathon" data-date="2024-04-06">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -256,7 +257,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="talk">
+        <div class="tl-item" data-category="talk" data-date="2024-03-22">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -271,7 +272,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="competition">
+        <div class="tl-item" data-category="competition" data-date="2024-03-14">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -286,7 +287,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="talk">
+        <div class="tl-item" data-category="talk" data-date="2024-02-22">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -301,7 +302,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="workshop">
+        <div class="tl-item" data-category="workshop" data-date="2024-02-14">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -316,7 +317,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="competition" data-order="5">
+        <div class="tl-item" data-category="competition" data-date="2026-09-02" data-order="5">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -331,7 +332,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="competition" data-order="4">
+        <div class="tl-item" data-category="competition" data-date="2026-09-02" data-order="4">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">
@@ -346,7 +347,7 @@
           </article>
         </div>
 
-        <div class="tl-item" data-category="workshop" data-order="9">
+        <div class="tl-item" data-category="workshop" data-date="2026-02-06" data-order="9">
           <div class="tl-empty"></div>
           <div class="tl-dot"></div>
           <article class="glass-card tl-card tilt">

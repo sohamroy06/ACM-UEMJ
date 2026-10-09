@@ -502,13 +502,10 @@
 
     const target = Date.parse(countdown.dataset.target);
     if (!Number.isFinite(target)) return;
-    const eventDayEnds = target + 86400000;
-
     function tick() {
       const remaining = target - Date.now();
       if (remaining <= 0) {
-        const message = Date.now() < eventDayEnds ? 'Byte Battle is today!' : 'Byte Battle has ended.';
-        countdown.innerHTML = `<p class="upcoming-countdown-status">${message}</p>`;
+        countdown.innerHTML = '<p class="upcoming-countdown-status">Registration closed</p>';
         return;
       }
 
@@ -537,7 +534,14 @@
     const timeline = document.querySelector('.timeline');
     if (timeline) {
       Array.from(timeline.children)
-        .sort((a, b) => (Number(a.dataset.order) || Number.MAX_SAFE_INTEGER) - (Number(b.dataset.order) || Number.MAX_SAFE_INTEGER))
+        .map((item, index) => ({ item, index }))
+        .sort((a, b) => {
+          const dateDifference = (Date.parse(b.item.dataset.date || '') || 0) - (Date.parse(a.item.dataset.date || '') || 0);
+          if (dateDifference) return dateDifference;
+          const orderDifference = (Number(a.item.dataset.order) || Number.MAX_SAFE_INTEGER) - (Number(b.item.dataset.order) || Number.MAX_SAFE_INTEGER);
+          return orderDifference || a.index - b.index;
+        })
+        .map(({ item }) => item)
         .forEach((item) => timeline.appendChild(item));
     }
     const items = document.querySelectorAll('.tl-item');
